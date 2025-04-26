@@ -1,5 +1,4 @@
 import React , { useState, useEffect } from 'react';
-//import { getAllCountries, getCountryByName, getCountriesByRegion } from './api/countriesApi';
 import CountryCard from './components/CountryCard';
 import SearchBar from './components/SearchBar';
 import Filter from './components/Filter';
@@ -9,6 +8,7 @@ function App() {
   const [countries, setCountries] = useState([]);
   const [search, setSearch] = useState('');
   const [region, setRegion] = useState('');
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -30,9 +30,23 @@ function App() {
     );
   });
   
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    if (!darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      <h1 className="text-4xl font-bold text-center mb-8">Country Explorer 🌎</h1>
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 p-6 transition-all">
+      <div className="flex justify-end mb-4">
+        <button onClick={toggleDarkMode} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+          {darkMode ? 'Light Mode 🌞' : 'Dark Mode 🌙'}
+        </button>
+      </div>
+      <h1 className="text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white">Country Explorer 🌎</h1>
       <div className="max-w-5xl mx-auto mb-8">
         <SearchBar setSearch={setSearch} />
         <Filter steRegion={setRegion} />
