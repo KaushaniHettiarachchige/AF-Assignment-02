@@ -1,8 +1,8 @@
-import React , { useState, useEffect } from 'react';
-import CountryCard from './components/CountryCard';
+import React, { useEffect, useState } from 'react';
 import SearchBar from './components/SearchBar';
 import Filter from './components/Filter';
-import axios from 'axios';
+import CountryCard from './components/CountryCard';
+import { getAllCountries, searchCountryByName, getCountriesByRegion } from './api/countriesApi';
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -11,25 +11,46 @@ function App() {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
-    const fetchCountries = async () => {
-      try {
-        const response = await axios.get('https://restcountries.com/v3.1/all');
-        setCountries(response.data);
-      } catch (error) {
-        console.error('Error fetching countries:', error);
-      }
-    };
-
-    fetchCountries();
+    fetchAllCountries();
   }, []);
 
-  const filteredCountries = countries.filter((country) => {
-    return (
-      country.name.common.toLowerCase().includes(search.toLowerCase()) &&
-      (region ? country.region === region : true)
-    );
-  });
-  
+  useEffect(() => {
+    if (search) {
+      fetchCountryByName(search);
+    } else if (region) {
+      fetchCountriesByRegion(region);
+    } else {
+      fetchAllCountries();
+    }
+  }, [search, region]);
+
+  const fetchAllCountries = async () => {
+    try {
+      const response = await getAllCountries();
+      setCountries(response.data);
+    } catch (error) {
+      console.error('Error fetching all countries:', error);
+    }
+  };
+
+  const fetchCountryByName = async (name) => {
+    try {
+      const response = await searchCountryByName(name);
+      setCountries(response.data);
+    } catch (error) {
+      console.error('Error searching country:', error);
+    }
+  };
+
+  const fetchCountriesByRegion = async (region) => {
+    try {
+      const response = await getCountriesByRegion(region);
+      setCountries(response.data);
+    } catch (error) {
+      console.error('Error fetching countries by region:', error);
+    }
+  };
+
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
     if (!darkMode) {
@@ -41,18 +62,27 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 p-6 transition-all">
+      {/* Dark Mode Toggle */}
       <div className="flex justify-end mb-4">
-        <button onClick={toggleDarkMode} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+        <button
+          onClick={toggleDarkMode}
+          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
+        >
           {darkMode ? 'Light Mode 🌞' : 'Dark Mode 🌙'}
         </button>
       </div>
-      <h1 className="text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white">Country Explorer 🌎</h1>
+
+      <h1 className="text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white">
+        Country Explorer 🌍
+      </h1>
+
       <div className="max-w-5xl mx-auto mb-8">
         <SearchBar setSearch={setSearch} />
-        <Filter steRegion={setRegion} />
+        <Filter setRegion={setRegion} />
       </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {filteredCountries.map((country) => (
+        {countries.map((country) => (
           <CountryCard key={country.cca3} country={country} />
         ))}
       </div>
