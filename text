@@ -1,0 +1,4 @@
+git add.
+git commit -m "Message"
+git push origin main - my repo
+git push repo1 main - repo given by lecturer
