@@ -24,6 +24,9 @@ const CountryCard = ({ country }) => {
             <p className="text-gray-600 dark:text-gray-300">
               <span className="font-semibold">Capital:</span> {country.capital?.[0] || 'N/A'}
             </p>
+            <p className="text-gray-600 dark:text-gray-300">
+              <span className="font-semibold">Languages:</span> {country.languages ? Object.values(country.languages).join(', ') : 'N/A'}
+            </p>
           </div>
         </div>
       </div>
