@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SearchBar = ({ onSearch, onFilter, regions }) => {
+const SearchBar = ({ onSearch, onFilterRegion, onFilterLanguage, regions, languages }) => {
     return (
         <div className="flex flex-col md:flex-row justify-between gap-4 mb-8">
             <div className="relative flex-1">
@@ -25,13 +25,24 @@ const SearchBar = ({ onSearch, onFilter, regions }) => {
                 </svg>
             </div>
             <select
-                onChange={(e) => onFilter(e.target.value)}
+                onChange={(e) => onFilterRegion(e.target.value)}
                 className="px-4 py-2 rounded-md shadow-sm dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
                 <option value="">Filter By Region</option>
                 {regions.map((region) => (
                     <option key={region} value={region}>
                         {region}
+                    </option>
+                ))}
+            </select>
+            <select
+                onChange={(e) => onFilterLanguage(e.target.value)}
+                className="px-4 py-2 rounded-md shadow-sm dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+                <option value="">Filter by Language</option>
+                {languages.map((lang) => (
+                    <option key={lang} value={lang}>
+                        {lang}
                     </option>
                 ))}
             </select>
