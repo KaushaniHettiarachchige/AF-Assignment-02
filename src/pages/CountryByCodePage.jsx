@@ -34,7 +34,7 @@ const CountryByCodePage = () => {
 
     return (
         <div className="container mx-auto px-4 py-8">
-            <h2 className="text-2xl font-bold mb-6 dark:text-white">Country details for {code.toUpperCase()}</h2>
+            <h2 className="text-2xl font-bold mb-6 dark:text-white">Country Details for {code.toUpperCase()}</h2>
             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
                 <h3 className="text-xl font-semibold mb-4 dark:text-white">{country.name.common}</h3>
                 <img src={country.flags.png} alt={`${country.name.common} flag`} className="w-32 h-20 object-cover mb-4" />

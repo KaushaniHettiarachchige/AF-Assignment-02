@@ -12,15 +12,17 @@ import DarkModeToggle from './components/DarkModeToggle';
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
+      <div className="min-h-screen flex flex-col bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
         <header className="bg-blue-600 dark:bg-blue-900 shadow-md">
-          <div className="container mx-auto px-4 py-6 flex items-center justify-between">
+          <div className="container mx-auto px-4 py-6 flex items-center justify-center relative">
             <h1 className="text-2xl font-bold dark:text-white">TrackTheEarth🌍...</h1>
-            <DarkModeToggle />
+            <div className="absolute right-4">
+              <DarkModeToggle />
+            </div>
           </div>
         </header>
         
-        <main>
+        <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/country/:code" element={<CountryDetail />} />
