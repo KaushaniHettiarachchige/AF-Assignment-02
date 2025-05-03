@@ -19,19 +19,15 @@ const ApiTest = () => {
   useEffect(() => {
     const testEndpoints = async () => {
       try {
-        // Test GET /all
         const allCountries = await getAllCountries();
         setTestResults(prev => ({ ...prev, allCountries: allCountries.length }));
 
-        // Test GET /name/{name}
         const countryByName = await getCountryByName('canada');
         setTestResults(prev => ({ ...prev, countryByName: countryByName[0]?.name?.common }));
 
-        // Test GET /region/{region}
         const countriesByRegion = await getCountriesByRegion('europe');
         setTestResults(prev => ({ ...prev, countriesByRegion: countriesByRegion.length }));
 
-        // Test GET /alpha/{code}
         const countryByCode = await getCountryByCode('usa');
         setTestResults(prev => ({ ...prev, countryByCode: countryByCode[0]?.name?.common }));
 
