@@ -12,14 +12,11 @@ describe('DarkModeToggle Component', () => {
     render(<DarkModeToggle />);
     const toggleButton = screen.getByRole('button');
     
-    // Initial state should be light mode
     expect(document.documentElement.classList.contains('dark')).toBe(false);
     
-    // Click to toggle to dark mode
     fireEvent.click(toggleButton);
     expect(document.documentElement.classList.contains('dark')).toBe(true);
     
-    // Click again to toggle back to light mode
     fireEvent.click(toggleButton);
     expect(document.documentElement.classList.contains('dark')).toBe(false);
   });
