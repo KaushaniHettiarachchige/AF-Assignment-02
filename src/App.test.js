@@ -17,29 +17,30 @@ describe('App Component', () => {
 
   test('renders header with title and dark mode toggle', () => {
     renderApp();
-
+    
+    // Check if the title is present
     const title = screen.getByText('TrackTheEarth🌍...');
     expect(title).toBeInTheDocument();
-
+    
+    // Check if dark mode toggle is present
     const darkModeToggle = screen.getByTestId('dark-mode-toggle');
     expect(darkModeToggle).toBeInTheDocument();
   });
 
-
-  test('renders footer eith copyright information', () => {
+  test('renders footer with copyright information', () => {
     renderApp();
-
+    
     const copyrightText = screen.getByText(/© 2025 TrackTheEarth/i);
     expect(copyrightText).toBeInTheDocument();
-
-    const creatorText = screen.getByText(/Created By Kaushani Hettiarachchige/i);
+    
+    const creatorText = screen.getByText(/Created by Kaushani Hettiarachchige/i);
     expect(creatorText).toBeInTheDocument();
   });
 
   test('renders main content area', () => {
     renderApp();
-
+    
     const mainContent = screen.getByTestId('home-page');
-      expect(mainContent).toBeInTheDocument();
+    expect(mainContent).toBeInTheDocument();
   });
 });
