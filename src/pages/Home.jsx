@@ -7,6 +7,7 @@ const Home = () => {
   const [countries, setCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
   const [regions, setRegions] = useState([]);
+  const [languages, setLanguages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -17,9 +18,16 @@ const Home = () => {
         setCountries(data);
         setFilteredCountries(data);
         
-        // Extract unique regions
         const uniqueRegions = [...new Set(data.map(country => country.region))];
         setRegions(uniqueRegions);
+
+        const langSet = new Set();
+        data.forEach(country => {
+          if (country.languages) {
+            Object.values(country.languages).forEach(lang => langSet.add(lang));
+          }
+        });
+        setLanguages([...langSet].sort());
         
         setLoading(false);
       } catch (err) {
@@ -45,7 +53,7 @@ const Home = () => {
     }
   };
 
-  const handleFilter = async (region) => {
+  const handleFilterRegion = async (region) => {
     if (!region) {
       setFilteredCountries(countries);
       return;
@@ -57,6 +65,17 @@ const Home = () => {
     } catch (err) {
       setFilteredCountries([]);
     }
+  };
+
+  const handleFilterLanguage = (language) => {
+    if (!language) {
+      setFilteredCountries(countries);
+      return;
+    }
+    const filtered = countries.filter(country =>
+      country.languages && Object.values(country.languages).includes(language)
+    );
+    setFilteredCountries(filtered);
   };
 
   if (loading) {
@@ -77,7 +96,13 @@ const Home = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <SearchBar onSearch={handleSearch} onFilter={handleFilter} regions={regions} />
+      <SearchBar 
+        onSearch={handleSearch} 
+        onFilterRegion={handleFilterRegion}
+        onFilterLanguage={handleFilterLanguage}
+        regions={regions}
+        languages={languages}
+        />
       
       {filteredCountries.length === 0 ? (
         <p className="text-center text-gray-600 dark:text-gray-300 text-xl">
