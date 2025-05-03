@@ -7,6 +7,7 @@ import AllCountriesPage from './pages/AllCountriesPage';
 import CountryByNamePage from './pages/CountryByNamePage';
 import CountriesByRegionPage from './pages/CountriesByRegionPage';
 import CountryByCodePage from './pages/CountryByCodePage';
+import DarkModeToggle from './components/DarkModeToggle';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <header className="bg-white dark:bg-gray-800 shadow-md">
           <div className="container mx-auto px-4 py-6">
             <h1 className="text-2xl font-bold dark:text-white">TrackTheEarth🌍...</h1>
+            <DarkModeToggle />
           </div>
         </header>
         
