@@ -22,6 +22,7 @@ function App() {
             <Route path="/country/:code" element={<CountryDetail />} />
             <Route path="/api-test" element={<ApiTest />} />
             <Route path="/all" element={<AllCountriesPage />} />
+            <Route path="/region/:region" element={<CountriesByRegionPage />} />
           </Routes>
         </main>
       </div>
