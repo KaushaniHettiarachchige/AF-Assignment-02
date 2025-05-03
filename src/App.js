@@ -31,6 +31,12 @@ function App() {
             <Route path="/alpha/:code" element={<CountryByCodePage />} />
           </Routes>
         </main>
+        <footer className="bg-blue-600 dark:bg-blue-900 text-white dark:text-gray-200 py-4 mt-8 shadow-inner">
+          <div className="container mx-auto px-4 text-center">
+            © 2025 TrackTheEarth🌍 All rights reserved.<br />
+            Created by Kaushani Hettiarachchige
+          </div>
+        </footer>
       </div>
     </Router>
   );
