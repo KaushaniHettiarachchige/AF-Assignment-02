@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import CountryDetail from './pages/CountryDetail';
 import ApiTest from './components/ApiTest';
 import AllCountriesPage from './pages/AllCountriesPage';
+import CountriesByRegionPage from './pages/CountriesByRegionPage';
 
 function App() {
   return (

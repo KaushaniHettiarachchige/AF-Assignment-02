@@ -12,8 +12,8 @@ const CountriesByRegionPage = () => {
     useEffect(() => {
         const fetchCountries = async () => {
             try {
-                cosnt data = await getCountriesByRegion(region);
-                setCountry(data);
+                const data = await getCountriesByRegion(region);
+                setCountries(data);
                 setLoading(false);
             } catch (err) {
                 setError('No countries found in that region');
@@ -44,4 +44,4 @@ const CountriesByRegionPage = () => {
     );
 };
 
-export default countriesByRegionPage;
+export default CountriesByRegionPage;
