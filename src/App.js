@@ -5,6 +5,7 @@ import CountryDetail from './pages/CountryDetail';
 import ApiTest from './components/ApiTest';
 import AllCountriesPage from './pages/AllCountriesPage';
 import CountriesByRegionPage from './pages/CountriesByRegionPage';
+import CountryByCodePage from './pages/CountryByCodePage';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/api-test" element={<ApiTest />} />
             <Route path="/all" element={<AllCountriesPage />} />
             <Route path="/region/:region" element={<CountriesByRegionPage />} />
+            <Route path="/alpha/:code" element={<CountryByCodePage />} />
           </Routes>
         </main>
       </div>
