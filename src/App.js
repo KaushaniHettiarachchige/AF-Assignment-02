@@ -20,6 +20,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/country/:code" element={<CountryDetail />} />
             <Route path="/api-test" element={<ApiTest />} />
+            <Route path="/all" element={<AllCountriesPage />} />
           </Routes>
         </main>
       </div>
