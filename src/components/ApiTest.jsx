@@ -24,7 +24,7 @@ const ApiTest = () => {
                 setTestResults(prev => ({ ...prev, allCountries: allCountries.length }));
 
                 const countryByName = await getCountryByName('canada');
-                setTestResults(prev => ({ ...prev, countryByName: countryByName[0]?.name?.common });
+                setTestResults(prev => ({ ...prev, countryByName: countryByName[0]?.name?.common }));
 
                 const countriesByRegion = await getCountriesByRegion('europe');
                 setTestResults(prev => ({ ...prev, countriesByRegion: countriesByRegion.length }));
