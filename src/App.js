@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import CountryDetail from './pages/CountryDetail';
 import ApiTest from './components/ApiTest';
+import AllCountriesPage from './pages/AllCountriesPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/country/:code" element={<CountryDetail />} />
+            <Route path="/api-test" element={<ApiTest />} />
           </Routes>
         </main>
       </div>
