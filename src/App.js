@@ -13,7 +13,7 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
-        <header className="bg-white dark:bg-gray-800 shadow-md">
+        <header className="bg-blue-600 dark:bg-blue-900 shadow-md">
           <div className="container mx-auto px-4 py-6 flex items-center justify-between">
             <h1 className="text-2xl font-bold dark:text-white">TrackTheEarth🌍...</h1>
             <DarkModeToggle />
