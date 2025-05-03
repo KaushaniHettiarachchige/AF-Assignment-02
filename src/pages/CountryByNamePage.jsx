@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCountryByName } from '../services/api';
-import CountryCard from '../componenets/CountryCard';
+import CountryCard from '../components/CountryCard';
 
 const CountryByNamePage = () => {
     const { name } = useParams();
