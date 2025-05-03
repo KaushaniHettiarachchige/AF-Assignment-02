@@ -1,26 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import  { getCountryByCode } from '../services/api';
+import { getCountriesByRegion } from '../services/api';
+import CountryCard from '../components/CountryCard';
 
-const CountryByCodePage = () => {
-    const { code } = useParams();
-    const [country, setCountry] = useState(null);
+const CountriesByRegionPage = () => {
+    const { region } = useParams();
+    const [countries, setCountries] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const fetchCountry = async () => {
+        const fetchCountries = async () => {
             try {
-                cosnt data = await getCountryByCode(code);
-                setCountry(dta[0]);
+                cosnt data = await getCountriesByRegion(region);
+                setCountry(data);
                 setLoading(false);
             } catch (err) {
-                setError('No country found with that code');
+                setError('No countries found in that region');
                 setLoading(false);
             }
         };
-        fetchCountry();
-    }, [code]);
+        fetchCountries();
+    }, [region]);
 
     if (loading) return 
         <div className="flex justify-center items-center min-h-screen">
@@ -30,21 +31,17 @@ const CountryByCodePage = () => {
         <div className="flex justify-center items-center min-h-screen">
             <p className="text-red-500 text-xl">{error}</p>
         </div>;
-    if (!country) return null;
 
     return (
         <div className="container mx-auto px-4 py-8">
-            <h2 className="text-2xl font-bold mb-6 dark:text-white">Country Details for {code.toUpperCase()}</h2>
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold mb-4 dark:text-white">{country.name.common}</h3>
-                <img src={country.flags.png} alt={`${country.name.common} flag`} className="w-32 h-20 object-cover mb-4" />
-                <p className="text-gray-600 dark:text-gray-300"><strong>Population:</strong> {country.population.toLocaleString()}</p>
-                <p className="text-gray-600 dark:text-gray-300"><strong>Region:</strong> {country.region}</p>
-                <p className="text-gray-600 dark:text-gray-300"><strong>Capital:</strong> {country.capital?.[0] || 'N/A'}</p>
-                <p clasSName="text-gray-600 dark:text-gray-300"><strong>Languages:</strong> {country.languages ? Object.value(country.languages).join(', ') : 'N/A'}</p>
+            <h2 className="text-2xl font-bold mb-6 dark:text-white">Countries in {region}</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                {countries.map((country) => (
+                    <CountryCard key={country.cca3} country={country} />
+                ))}
             </div>
         </div>
     );
 };
 
-export default CountrybyCodePage;
+export default countriesByRegionPage;
