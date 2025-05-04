@@ -11,14 +11,19 @@ export const SessionProvider = ({ children }) => {
     useEffect(() => {
         const storedUser = localStorage.getItem('user');
         if (storedUser) {
-            setUser(JSON.parse(storedUser));
+            try {
+                setUser(JSON.parse(storedUser));
+            } catch (error) {
+                console.error('Error parsing stored user data:', error);
+                localStorage.removeItem('user');
+            }
         }
         setIsLoading(false);
     }, []);
 
     const login = (userData) => {
         setUser(userData);
-        localStorage.setItem('usesr', JSON.stringify(userData));
+        localStorage.setItem('user', JSON.stringify(userData));
     };
 
     const logout = () => {
@@ -42,7 +47,7 @@ export const SessionProvider = ({ children }) => {
 
     return (
         <SessionContext.Provider value={value}>
-            {children}
+            {!isLoading && children}
         </SessionContext.Provider>
     );
 };
