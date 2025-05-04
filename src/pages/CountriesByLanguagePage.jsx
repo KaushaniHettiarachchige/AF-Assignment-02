@@ -34,7 +34,7 @@ const CountriesByLanguagePage = () => {
     }, [language]);
 
     if (loading) return <div className="text-center py-8">Loading...</div>;
-    if (error) return <duv className="text-center py-8 text-red-500">{error}</div>;
+    if (error) return <div className="text-center py-8 text-red-500">{error}</div>;
     if (countries.length === 0) return <div className="text-center py-8">No countries found with language: {language}</div>
 
     return (
