@@ -37,16 +37,7 @@ function AppContent() {
           <div className="container mx-auto px-4 py-6 flex items-center justify-center relative">
             <h1 className="text-2xl font-bold dark:text-white">TrackTheEarth🌍...</h1>
             <div className="flex items-center space-x-4">
-              {isAuthenticated ? (
-                <UserProfile />
-              ) : (
-                <a
-                href="/login"
-                className="text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Sign in
-                </a>
-              )}
+              {isAuthenticated && <UserProfile />}
               <DarkModeToggle />
             </div>
           </div>
