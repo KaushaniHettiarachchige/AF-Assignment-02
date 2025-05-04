@@ -96,6 +96,37 @@ rest-countries-new
     - filter by language - /language/:language
     - filter by code - /alpha/code
 
+# Challenges faced and how they resolved
+
+1. State Management 
+Challenge -> Managing user session across components
+Solution -> Implemented 'SessionContext' for centralized state management.
+
+2. API Integration
+Challenge -> Handling API errors
+Solution -> Added loading states.
+
+3. Dark Mode Implementation
+Challenge -> Consistent dark mode across components
+Solution -> Used css variables for theme colors
+
+# Testing Tools
+
+- React testing library
+- Jest
+- Async/await for handling asynchronous operations
+
+# Testing files
+
+1. CountryCard.test.js
+2. DarkModeToggle.test.js
+3. Home.test.js
+4. App.test.js
+
+# Run tests
+
+- npm test
+
 # Contribution of Git
 
 - add files - git add .
@@ -116,3 +147,6 @@ Github - Kaushani Hettiarachchige - https://github.com/KaushaniHettiarachchige
 
 https://github.com/SE1020-IT2070-OOP-DSA-25/af-2-KaushaniHettiarachchige
 
+# Hosting of application
+
+- Link -> 
