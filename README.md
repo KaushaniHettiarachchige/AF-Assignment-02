@@ -149,4 +149,4 @@ https://github.com/SE1020-IT2070-OOP-DSA-25/af-2-KaushaniHettiarachchige
 
 # Hosting of application
 
-- Link -> 
+- Link -> https://af-assignment-02-eight.vercel.app/
