@@ -50,35 +50,36 @@ Endpoints are,
 - `https://restcountries.com/v3.1/alpha/:code` - Get country by code
 
 # Project Structure
+
 rest-countries-new
-    -node_modules/
-    -public/
-    -src/
-        -components/
-            -ApiTest.jsx
-            -CountryCard.jsx
-            -CountryCard.test.js
-            -DarkModeToggle.jsx
-            -DarkModeToggle.test.js
-            -SearchBar.jsx
-        -pages/
-            -AllCountries.jsx
-            -CountriesByLanguagesPage.jsx
-            -CountriesByRegionPage.jsx
-            -CountryByCodePage.jsx
-            -CountryByNamePage.jsx
-            -CountryDetail.jsx
-            -Home.jsx
-            -Home.test.js
-        -services/
-            -api.js
-            -api.test.js
-        -App.css
-        -App.js
-        -App.test.js
-        -index.css
-        -index.js
-        -setupTests.js
+└──node_modules/
+└──public/
+└──src/
+    └──components/
+        └──ApiTest.jsx
+        └──CountryCard.jsx
+        └──CountryCard.test.js
+        └──DarkModeToggle.jsx
+        └──DarkModeToggle.test.js
+        └──SearchBar.jsx
+    └──pages/
+        └──AllCountries.jsx
+        └──CountriesByLanguagesPage.jsx
+        └──CountriesByRegionPage.jsx
+        └──CountryByCodePage.jsx
+        └──CountryByNamePage.jsx
+        └──CountryDetail.jsx
+        └──Home.jsx
+        └──Home.test.js
+    └──services/
+        └──api.js
+        └──api.test.js
+    └──App.css
+    └──App.js
+    └──App.test.js
+    └──index.css
+    └──index.js
+    └──setupTests.js
 
 # Available Scripts
 
