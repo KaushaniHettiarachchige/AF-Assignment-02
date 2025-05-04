@@ -1,11 +1,11 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 
-const SessionContext = createcontext();
+const SessionContext = createContext();
 
 export const useSession = () => useContext(SessionContext);
 
 export const SessionProvider = ({ children }) => {
-    const [user, setUser] useState(null);
+    const [user, setUser] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -17,7 +17,7 @@ export const SessionProvider = ({ children }) => {
     }, []);
 
     const login = (userData) => {
-        steUser(userData);
+        setUser(userData);
         localStorage.setItem('usesr', JSON.stringify(userData));
     };
 
@@ -27,7 +27,7 @@ export const SessionProvider = ({ children }) => {
     };
 
     const updateUser = (updatedUserData) => {
-        setUSer(updatedUserData);
+        setUser(updatedUserData);
         localStorage.setItem('user', JSON.stringify(updatedUserData));
     };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSession } from '../context/SessionContex';
+import { useSession } from '../context/SessionContext';
 
 const UserProfile = () => {
     const { user, logout } = useSession();
