@@ -1,78 +1,113 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# AF-Assignment-02
-=======
-# Getting Started with Create React App
+# TrackTheEarth🌍
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a modern web application for explore each and every country around the world. This is built with React, TailwindCSS and the REST countries API.
 
-## Available Scripts
+# Features
 
-In the project directory, you can run:
+1. Browse all countries around the world 🌍
+2. Search country by name 🔍
+3. Filter country by region 🌐
+4. Filter country by language 🗨️
+5. Dark Mode Toggle ☀️🌙
+6. Responsive design 📱
+7. Fast and efficient data loading ⚡
 
-### `npm start`
+# Technology Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React.js
+- Tailwind CSS
+- React Router
+- REST Countries API
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Pre-requisites
 
-### `npm test`
+- Node.js
+- npm
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Installation
 
-### `npm run build`
+1. Make the project
+- make the folder
+- cd rest-countries-api
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Install dependencies
+- npm install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Start the development server
+- npm start
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Themn the application will be start at `http://loclahost:3000`
 
-### `npm run eject`
+# API Integration
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This application uses the REST Countries API (https://restcountries.com/) to fetch the details of country.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Endpoints are,
+- `https://restcountries.com/v3.1/all` - Get all countries
+- `https://restcountries.com/v3.1/name/:name` - Search country by name
+- `https://restcountries.com/v3.1/region/:region` - Get country by region
+- `https://restcountries.com/v3.1/language/:language` - Get country by language
+- `https://restcountries.com/v3.1/alpha/:code` - Get country by code
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Project Structure
+rest-countries-new
+    -node_modules/
+    -public/
+    -src/
+        -components/
+            -ApiTest.jsx
+            -CountryCard.jsx
+            -CountryCard.test.js
+            -DarkModeToggle.jsx
+            -DarkModeToggle.test.js
+            -SearchBar.jsx
+        -pages/
+            -AllCountries.jsx
+            -CountriesByLanguagesPage.jsx
+            -CountriesByRegionPage.jsx
+            -CountryByCodePage.jsx
+            -CountryByNamePage.jsx
+            -CountryDetail.jsx
+            -Home.jsx
+            -Home.test.js
+        -services/
+            -api.js
+            -api.test.js
+        -App.css
+        -App.js
+        -App.test.js
+        -index.css
+        -index.js
+        -setupTests.js
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Available Scripts
 
-## Learn More
+- npm start - Run the web application in development mode
+- npm test - Launches the test runner
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Usage
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Home page -> View all countries, dark mode, search and find specific country
+- CountryDetail page -> View detailed information about a country and access country specific data
+- Filtering options
+    - search by country name
+    - filter by region - /region/:region
+    - filter by language - /language/:language
+    - filter by code - /alpha/code
 
-### Code Splitting
+# Contribution of Git
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- add files - git add .
+- commit changes - git commit -m "Message"
+- push to the repository - git push origin main
 
-### Analyzing the Bundle Size
+# Acknowledgements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- https://restcountries.com/ (REST Countries API) - for providing the details of countries
+- https://create-react-app.dev/ (Create React App) - for the react project set up
+- https://tailwindcss.com/ (Tailwind CSS) - for styling framework
 
-### Making a Progressive Web App
+# Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Github - Kaushani Hettiarachchige - https://github.com/KaushaniHettiarachchige
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
->>>>>>> 630afb6 (Initialize project using Create React App)
-=======
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/mNaxAqQD)
->>>>>>> f414d74c837b8e26707980772b6f6f30030d7867
