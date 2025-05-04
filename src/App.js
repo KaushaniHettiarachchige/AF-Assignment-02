@@ -31,7 +31,7 @@ function App() {
             <Route path="/all" element={<AllCountriesPage />} />
             <Route path="/name/:name" element={<CountryByNamePage />} />
             <Route path="/region/:region" element={<CountriesByRegionPage />} />
-            <Route path="/language/:language" element={<CountryByLanguagPage />} />
+            <Route path="/language/:language" element={<CountriesByLanguagePage />} />
             <Route path="/alpha/:code" element={<CountryByCodePage />} />
           </Routes>
         </main>
