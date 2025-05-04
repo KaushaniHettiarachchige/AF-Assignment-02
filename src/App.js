@@ -7,6 +7,7 @@ import AllCountriesPage from './pages/AllCountriesPage';
 import CountryByNamePage from './pages/CountryByNamePage';
 import CountriesByRegionPage from './pages/CountriesByRegionPage';
 import CountryByCodePage from './pages/CountryByCodePage';
+import CountriesByLanguagePage from './pages/CountriesByLanguagePage';
 import DarkModeToggle from './components/DarkModeToggle';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
             <Route path="/all" element={<AllCountriesPage />} />
             <Route path="/name/:name" element={<CountryByNamePage />} />
             <Route path="/region/:region" element={<CountriesByRegionPage />} />
+            <Route path="/language/:language" element={<CountryByLanguagPage />} />
             <Route path="/alpha/:code" element={<CountryByCodePage />} />
           </Routes>
         </main>
